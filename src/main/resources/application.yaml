@@ -1,0 +1,28 @@
+server:
+  port: ${PORT:8080}
+  servlet:
+    context-path: /auth
+spring:
+  application:
+    name: auth
+management:
+  tracing:
+    sampling:
+      probability: 1
+springdoc:
+  swagger-ui:
+    path: /swagger
+  api-docs:
+    path: /api-docs
+security:
+  tokens:
+    access:
+      ttl: 30
+      time-unit: MINUTES
+    refresh:
+      ttl: 3
+      time-unit: HOURS
+    secret: b8663787bf74716e754970b68a3e31d6ee015e43ac7ca79242f7b2d227e18496
+  trace:
+    ttl: 30
+    time-unit: SECONDS
