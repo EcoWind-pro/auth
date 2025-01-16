@@ -1,0 +1,398 @@
+{
+	"info": {
+		"_postman_id": "fb10110c-394d-4d37-8d54-43961f7ab1ec",
+		"name": "Authorization service AUTH",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26688729"
+	},
+	"item": [
+		{
+			"name": "token",
+			"item": [
+				{
+					"name": "create",
+					"item": [
+						{
+							"name": "Creates a new pair of access and refresh tokens",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"login\": \"<string>\",\n  \"password\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/token/create",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"token",
+										"create"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"login\": \"<string>\",\n  \"password\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/token/create",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"token",
+												"create"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"accessToken\": \"<string>\",\n  \"refreshToken\": \"<string>\"\n}"
+								},
+								{
+									"name": "Bad Gateway",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"login\": \"<string>\",\n  \"password\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/token/create",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"token",
+												"create"
+											]
+										}
+									},
+									"status": "Bad Gateway",
+									"code": 502,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"exceptionClass\": \"<string>\",\n  \"exceptionProducer\": \"<string>\",\n  \"message\": \"<string>\",\n  \"timestamp\": \"<dateTime>\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "{refreshToken}",
+					"item": [
+						{
+							"name": "refresh",
+							"item": [
+								{
+									"name": "Refreshes tokens for user by his refresh token",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/token/:refreshToken/refresh",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"token",
+												":refreshToken",
+												"refresh"
+											],
+											"variable": [
+												{
+													"key": "refreshToken",
+													"value": "<string>",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/token/:refreshToken/refresh",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"token",
+														":refreshToken",
+														"refresh"
+													],
+													"variable": [
+														{
+															"key": "refreshToken"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "<string>"
+										},
+										{
+											"name": "Bad Gateway",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/token/:refreshToken/refresh",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"token",
+														":refreshToken",
+														"refresh"
+													],
+													"variable": [
+														{
+															"key": "refreshToken"
+														}
+													]
+												}
+											},
+											"status": "Bad Gateway",
+											"code": 502,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"exceptionClass\": \"<string>\",\n  \"exceptionProducer\": \"<string>\",\n  \"message\": \"<string>\",\n  \"timestamp\": \"<dateTime>\"\n}"
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "{accessToken}",
+					"item": [
+						{
+							"name": "validate",
+							"item": [
+								{
+									"name": "Validating given access token",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/token/:accessToken/validate",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"token",
+												":accessToken",
+												"validate"
+											],
+											"variable": [
+												{
+													"key": "accessToken",
+													"value": "<string>",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/token/:accessToken/validate",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"token",
+														":accessToken",
+														"validate"
+													],
+													"variable": [
+														{
+															"key": "accessToken"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{}"
+										},
+										{
+											"name": "Bad Gateway",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/token/:accessToken/validate",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"token",
+														":accessToken",
+														"validate"
+													],
+													"variable": [
+														{
+															"key": "accessToken"
+														}
+													]
+												}
+											},
+											"status": "Bad Gateway",
+											"code": 502,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"exceptionClass\": \"<string>\",\n  \"exceptionProducer\": \"<string>\",\n  \"message\": \"<string>\",\n  \"timestamp\": \"<dateTime>\"\n}"
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8080/ms-auth"
+		}
+	]
+}

@@ -1,14 +1,14 @@
 server:
   port: ${PORT:8080}
   servlet:
-    context-path: /auth
+    context-path: /ms-auth
 spring:
   application:
     name: auth
 management:
   tracing:
     sampling:
-      probability: 1
+      probability: 1.0
 springdoc:
   swagger-ui:
     path: /swagger
@@ -17,12 +17,9 @@ springdoc:
 security:
   tokens:
     access:
-      ttl: 30
-      time-unit: MINUTES
+      ttl: 10
+      time-unit: SECONDS
     refresh:
       ttl: 3
-      time-unit: HOURS
+      time-unit: DAYS
     secret: b8663787bf74716e754970b68a3e31d6ee015e43ac7ca79242f7b2d227e18496
-  trace:
-    ttl: 30
-    time-unit: SECONDS

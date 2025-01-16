@@ -1,6 +1,6 @@
 package ecowind.ru.auth.actions
 
-import ecowind.ru.auth.configs.properties.ClientProps
+import ecowind.ru.auth.configs.properties.MsClientProps
 import ecowind.ru.exceptionhandler.WebClientExceptionsHandler.exchangeCatchingErrors
 import ecowind.ru.utils.ActionUtils.generateUri
 import kotlinx.coroutines.reactor.awaitSingle
@@ -8,9 +8,9 @@ import org.springframework.stereotype.Component
 import org.springframework.web.reactive.function.client.WebClient
 
 @Component
-class ClientAction(
+class MsClientAction(
     private val webClient: WebClient,
-    private val clientProps: ClientProps
+    private val msClientProps: MsClientProps
 ) {
     /**
      * Request to another microservice to check if user with login exists (also validated users` password)
@@ -23,9 +23,9 @@ class ClientAction(
             .post()
             .uri(
                 generateUri(
-                    scheme = clientProps.scheme,
-                    host = clientProps.host,
-                    port = clientProps.port
+                    scheme = msClientProps.scheme,
+                    host = msClientProps.host,
+                    port = msClientProps.port,
                 )
             )
             .exchangeToMono { exchangeCatchingErrors(it) }
@@ -42,9 +42,9 @@ class ClientAction(
             .post()
             .uri(
                 generateUri(
-                    scheme = clientProps.scheme,
-                    host = clientProps.host,
-                    port = clientProps.port
+                    scheme = msClientProps.scheme,
+                    host = msClientProps.host,
+                    port = msClientProps.port
                 )
             )
             .exchangeToMono { exchangeCatchingErrors(it) }

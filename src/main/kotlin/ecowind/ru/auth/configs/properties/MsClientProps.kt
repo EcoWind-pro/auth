@@ -3,7 +3,7 @@ package ecowind.ru.auth.configs.properties
 import org.springframework.boot.context.properties.ConfigurationProperties
 
 @ConfigurationProperties(prefix = "rest.ms-client")
-data class ClientProps(
+data class MsClientProps(
     val scheme: String,
     val host: String,
     val port: Number?

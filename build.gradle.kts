@@ -13,8 +13,8 @@ version = "1.0"
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 kotlin.compilerOptions.freeCompilerArgs.addAll("-Xjsr305=strict")
 
+val nettyVersion = "4.1.85.Final"
 val coroutinesVersion = "1.9.0"
-val nettyVersion = "4.7.0"
 val springdocVersion = "2.2.0"
 val mapstructVersion = "1.6.2"
 val authapiVersion = "1.0.0"
@@ -49,10 +49,12 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-webflux")
     implementation("org.springframework.boot:spring-boot-starter-aop")
     implementation("org.springframework.boot:spring-boot-starter-actuator")
+    implementation("org.springframework.boot:spring-boot-actuator")
     implementation("org.springframework.boot:spring-boot-starter-data-redis")
 
     implementation("io.zipkin.reporter2:zipkin-reporter-brave")
     implementation("io.micrometer:micrometer-tracing-bridge-brave")
+    implementation("org.springframework.cloud:spring-cloud-starter-sleuth:3.1.11")
 
     implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:$springdocVersion")
 
@@ -70,6 +72,8 @@ dependencies {
     implementation("io.jsonwebtoken:jjwt-api:$jsonwebtokenVersion")
     implementation("io.jsonwebtoken:jjwt-impl:$jsonwebtokenVersion")
     implementation("io.jsonwebtoken:jjwt-jackson:$jsonwebtokenVersion")
+
+    implementation("io.netty:netty-all:$nettyVersion")
 }
 
 tasks.withType<Test> {
