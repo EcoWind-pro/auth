@@ -7,9 +7,11 @@ import ecowind.ru.authapi.responses.CreateTokensRs
 import ecowind.ru.utils.endpoints.Controller
 import ecowind.ru.utils.endpoints.GetEndpoint
 import ecowind.ru.utils.endpoints.PostEndpoint
+import org.springframework.http.HttpHeaders
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestBody
+import org.springframework.web.bind.annotation.RequestHeader
 
 @Controller(value = TokenAPI.PREFIX, name = "The TokenController API")
 class TokenController(
@@ -20,7 +22,7 @@ class TokenController(
         ResponseEntity.ok(tokenService.createTokens(createTokenRq))
 
     @GetEndpoint(value = TokenAPI.VALIDATE, summary = "Validating given access token")
-    fun validate(@PathVariable accessToken: String) =
+    fun validate(@RequestHeader(HttpHeaders.AUTHORIZATION) accessToken: String) =
         ResponseEntity.ok(tokenService.validateAccessTokenToAuth(accessToken))
 
     @GetEndpoint(value = TokenAPI.REFRESH, summary = "Refreshes tokens for user by his refresh token")

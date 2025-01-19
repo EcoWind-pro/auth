@@ -22,6 +22,7 @@ val exceptionshandlerVersion = "1.0.0"
 val utilsVersion = "1.0.0"
 val detektVersion = "1.23.7"
 val jsonwebtokenVersion = "0.12.3"
+val sleuthVersion = "3.1.11"
 
 repositories {
     mavenCentral()
@@ -51,10 +52,10 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-actuator")
     implementation("org.springframework.boot:spring-boot-actuator")
     implementation("org.springframework.boot:spring-boot-starter-data-redis")
+    implementation("org.springframework.cloud:spring-cloud-starter-sleuth:$sleuthVersion")
 
     implementation("io.zipkin.reporter2:zipkin-reporter-brave")
     implementation("io.micrometer:micrometer-tracing-bridge-brave")
-    implementation("org.springframework.cloud:spring-cloud-starter-sleuth:3.1.11")
 
     implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:$springdocVersion")
 

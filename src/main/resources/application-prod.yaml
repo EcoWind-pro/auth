@@ -7,9 +7,9 @@ spring:
       database: 0
 rest:
   ms-client:
-    scheme: ${CLIENT_REST_SCHEME}
-    host: ${CLIENT_REST_HOST}
-    port: ${CLIENT_REST_PORT}
+    scheme: ${CLIENT_REST_SCHEME:http}
+    host: ${CLIENT_REST_HOST:client}
+    port: ${CLIENT_REST_PORT:8081}
 management:
   zipkin:
     tracing:
